@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akses My-O Therapy Activities</title>
+<meta name="description" content="Form permintaan akses video My-O Therapy Activities untuk pasien Myobrace.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --red:#E8382C;
+    --gold:#F5A623;
+    --gold-light:#F6C544;
+    --blue:#1E4FA3;
+    --blue-dark:#173B7A;
+    --cream:#F5F0E4;
+    --card:#FFFFFF;
+    --ink:#2A2E45;
+    --muted:#6A6E82;
+    --line:#E7E1D3;
+    --ok:#2E9E5B;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:24px 16px 48px;
+  }
+
+  .wrap{max-width:560px;margin:0 auto;}
+
+  /* Header / logo */
+  .brand{text-align:center;margin:8px 0 18px;}
+  .brand img{width:min(300px,72%);height:auto;display:inline-block;}
+
+  /* Card */
+  .card{
+    background:var(--card);
+    border:2px solid var(--line);
+    border-radius:26px;
+    padding:26px 22px 28px;
+    box-shadow:0 18px 40px -24px rgba(30,79,163,.45);
+  }
+
+  h1{
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--blue);
+    margin:2px 0 10px;
+    letter-spacing:.2px;
+  }
+
+  .intro{
+    background:#FBEFE6;
+    border:2px dashed #F1C9A8;
+    border-radius:16px;
+    padding:14px 16px;
+    font-size:.95rem;
+    color:#7a4a28;
+    margin-bottom:22px;
+  }
+  .intro b{color:var(--red);}
+
+  /* Fields */
+  .field{margin-bottom:16px;}
+  label{
+    display:block;
+    font-weight:700;
+    font-size:.92rem;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  label .req{color:var(--red);}
+
+  input,select{
+    width:100%;
+    font-family:inherit;
+    font-size:1rem;
+    color:var(--ink);
+    background:#FBFAF6;
+    border:2px solid var(--line);
+    border-radius:14px;
+    padding:12px 14px;
+    transition:border-color .15s, box-shadow .15s, background .15s;
+  }
+  input:focus,select:focus{
+    outline:none;
+    border-color:var(--blue);
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(30,79,163,.14);
+  }
+  select{appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231E4FA3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;
+  }
+  .hint{font-size:.8rem;color:var(--muted);margin-top:5px;}
+
+  /* Honeypot */
+  .hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;}
+
+  /* Button */
+  .btn{
+    width:100%;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:1.12rem;
+    color:#fff;
+    background:var(--red);
+    border:none;
+    border-radius:16px;
+    padding:15px 18px;
+    margin-top:8px;
+    cursor:pointer;
+    box-shadow:0 6px 0 #b62a20;
+    transition:transform .06s, box-shadow .06s, background .15s;
+  }
+  .btn:hover{background:#f0402f;}
+  .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b62a20;}
+  .btn:disabled{background:#c9b9a0;box-shadow:0 6px 0 #ab9c85;cursor:not-allowed;}
+
+  .err{
+    display:none;
+    background:#FDECEA;border:2px solid #F5B7B1;color:#B03A2E;
+    border-radius:12px;padding:10px 14px;font-size:.9rem;font-weight:700;
+    margin-bottom:16px;
+  }
+
+  /* Success panel */
+  .done{display:none;text-align:center;padding:8px 4px 4px;}
+  .done .tick{
+    width:76px;height:76px;border-radius:50%;
+    background:var(--ok);margin:6px auto 16px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px -10px rgba(46,158,91,.7);
+  }
+  .done .tick svg{width:40px;height:40px;}
+  .done h2{font-family:'Fredoka',sans-serif;color:var(--blue);font-size:1.35rem;margin:0 0 8px;}
+  .done p{color:var(--muted);font-size:.98rem;margin:0 auto;max-width:38ch;}
+  .done .again{
+    margin-top:20px;background:none;border:none;color:var(--blue);
+    font-family:'Nunito';font-weight:700;font-size:.9rem;cursor:pointer;text-decoration:underline;
+  }
+
+  .foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:18px;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <img src="logo_myObrace.jpeg" alt="My-O Therapy — Straight Teeth The Natural Way">
+    </div>
+
+    <div class="card">
+      <!-- FORM -->
+      <div id="formView">
+        <h1>Daftar Akses Activities</h1>
+
+        <div class="intro">
+          Form ini perlu diisi untuk mendapatkan <b>akses My-O Therapy Activities</b>.
+          Lewat My-O Therapy Activities, anak melakukan latihan pendukung perawatan Myobrace
+          <b>setiap hari di rumah</b>, dengan pendampingan orang tua dan <b>kontrol di klinik secara berkala</b>.
+        </div>
+
+        <div class="err" id="errBox"></div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" autocomplete="email" placeholder="nama@email.com" required>
+          <div class="hint">Pakai email yang akan didaftarkan ke Google Classroom.</div>
+        </div>
+
+        <div class="field">
+          <label for="nama_pasien">Nama Pasien (Anak) <span class="req">*</span></label>
+          <input type="text" id="nama_pasien" autocomplete="off" placeholder="Nama lengkap anak" required>
+        </div>
+
+        <div class="field">
+          <label for="nama_ortu">Nama Orang Tua / Wali <span class="req">*</span></label>
+          <input type="text" id="nama_ortu" autocomplete="name" placeholder="Nama orang tua atau wali" required>
+        </div>
+
+        <div class="field">
+          <label for="nomor_wa">Nomor WhatsApp <span class="req">*</span></label>
+          <input type="tel" id="nomor_wa" inputmode="numeric" autocomplete="tel" placeholder="08xxxxxxxxxx" required>
+          <div class="hint">Konfirmasi akses akan dikirim ke nomor ini.</div>
+        </div>
+
+        <div class="field">
+          <label for="cabang">Cabang Klinik Tempat Anak Dirawat <span class="req">*</span></label>
+          <select id="cabang" required>
+            <option value="" disabled selected>— Pilih cabang —</option>
+          </select>
+        </div>
+
+        <!-- honeypot -->
+        <div class="hp" aria-hidden="true">
+          <label>Website</label>
+          <input type="text" id="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button class="btn" id="submitBtn">Kirim Permintaan Akses</button>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="done" id="doneView">
+        <div class="tick">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>Data kamu sudah masuk!</h2>
+        <p id="doneMsg">Klinik akan mendaftarkan emailmu ke Google Classroom My-O Therapy Activities, lalu mengonfirmasi lewat WhatsApp. Cek WhatsApp kamu secara berkala ya.</p>
+        <button class="again" id="againBtn">Isi untuk anak lain</button>
+      </div>
+    </div>
+
+    <div class="foot">My-O Therapy by Myobrace · Medikids</div>
+  </div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  var cfg = window.MYOBRACE_CONFIG || {};
+  var loadTime = Date.now();
+
+  // Isi dropdown cabang dari config
+  var sel = document.getElementById('cabang');
+  (cfg.CLINICS || []).forEach(function(name){
+    var o = document.createElement('option');
+    o.value = name; o.textContent = name;
+    sel.appendChild(o);
+  });
+
+  var formView = document.getElementById('formView');
+  var doneView = document.getElementById('doneView');
+  var errBox   = document.getElementById('errBox');
+  var btn      = document.getElementById('submitBtn');
+
+  function showErr(msg){
+    errBox.textContent = msg;
+    errBox.style.display = 'block';
+    errBox.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  function hideErr(){ errBox.style.display = 'none'; }
+
+  function val(id){ return document.getElementById(id).value.trim(); }
+
+  btn.addEventListener('click', function(){
+    hideErr();
+
+    var email  = val('email');
+    var pasien = val('nama_pasien');
+    var ortu   = val('nama_ortu');
+    var wa     = val('nomor_wa');
+    var cabang = val('cabang');
+
+    // Validasi
+    if(!email || !pasien || !ortu || !wa || !cabang){
+      return showErr('Mohon lengkapi semua kolom bertanda *.');
+    }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      return showErr('Format email belum benar.');
+    }
+    if(wa.replace(/[^0-9]/g,'').length < 9){
+      return showErr('Nomor WhatsApp belum benar.');
+    }
+    // Anti-bot: honeypot + minimal waktu isi 3 detik
+    if(document.getElementById('website').value){ return; }
+    if(Date.now() - loadTime < 3000){
+      return showErr('Sabar sebentar ya, lalu tekan kirim lagi.');
+    }
+    if(!cfg.WEB_APP_URL || cfg.WEB_APP_URL.indexOf('PASTE_') === 0){
+      return showErr('WEB_APP_URL belum diisi di config.js.');
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Mengirim…';
+
+    var payload = new URLSearchParams({
+      email: email,
+      nama_pasien: pasien,
+      nama_ortu: ortu,
+      nomor_wa: wa,
+      cabang: cabang,
+      website: '' // honeypot
+    });
+
+    fetch(cfg.WEB_APP_URL, { method:'POST', body: payload })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data && data.status === 'ok'){
+          document.getElementById('doneMsg').textContent =
+            'Klinik ' + cabang + ' akan mendaftarkan emailmu ke Google Classroom My-O Therapy Activities, ' +
+            'lalu mengonfirmasi lewat WhatsApp. Cek WhatsApp kamu secara berkala ya.';
+          formView.style.display = 'none';
+          doneView.style.display = 'block';
+          window.scrollTo({top:0, behavior:'smooth'});
+        } else {
+          throw new Error((data && data.message) || 'gagal');
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Kirim Permintaan Akses';
+        showErr('Gagal mengirim. Cek koneksi lalu coba lagi. Kalau tetap gagal, hubungi CRO.');
+      });
+  });
+
+  document.getElementById('againBtn').addEventListener('click', function(){
+    ['email','nama_pasien','nama_ortu','nomor_wa'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('cabang').selectedIndex = 0;
+    loadTime = Date.now();
+    doneView.style.display = 'none';
+    formView.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Kirim Permintaan Akses';
+  });
+})();
+</script>
+</body>
+</html>
