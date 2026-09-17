@@ -8,7 +8,7 @@ window.MYOBRACE_CONFIG = {
   /* URL Web App Apps Script.
      Ambil dari: Deploy > Manage deployments > (salin Web app URL).
      JANGAN buat "New deployment" saat update kode — pakai pensil > New version. */
-  WEB_APP_URL: "PASTE_WEB_APP_URL_DISINI",
+  WEB_APP_URL: "https://script.google.com/macros/s/AKfycbwBpY4VcjuX9_APGlyxqoUb_o4HhHvMeIT434icuYJsL2_TaiNJ0PXv_-9MSH3PBeFwug/exec",
 
   /* Daftar cabang klinik untuk dropdown.
      PENTING: setiap nama di sini WAJIB punya nomornya di Code.gs (objek KLINIK_WA),
