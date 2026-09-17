@@ -15,6 +15,7 @@ window.MYOBRACE_CONFIG = {
      dengan tulisan PERSIS sama. Kalau nama beda satu huruf, notifikasi WA tidak terkirim
      (akan jatuh ke nomor cadangan/CRO). */
   CLINICS: [
+     "Medikids Test",
     "MHDC Bulog",
     "MHDC Kalibata City",
     "MHDC Menara Sentraya",
